@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OptiAI Agency – Custom AI Optimization Services</title>
+<style>
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0;
+    background: #f0f4fa;
+    color: #222;
+    line-height: 1.6;
+  }
+  a {
+    color: #0051a2;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  /* Header */
+  header {
+    background: #004aad;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 900;
+  }
+  header p {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  /* Section - Services */
+  section.services {
+    background: white;
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.07);
+  }
+  section.services h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #004aad;
+  }
+  .service-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1.5rem;
+  }
+  .service-item {
+    background: #f7f9fc;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    flex: 1 1 280px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 5px rgb(0 0 0 / 0.05);
+    transition: box-shadow 0.3s ease;
+  }
+  .service-item:hover {
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.12);
+  }
+  .service-item h3 {
+    margin-top: 0;
+    color: #004aad;
+  }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    margin: 3rem 0 2rem 0;
+  }
+  .btn-primary {
+    background: #004aad;
+    color: white;
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: #003080;
+  }
+
+  /* Footer */
+  footer {
+    background: #004aad;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .service-list {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>OptiAI Agency</h1>
+    <p>Custom AI Optimization Services Tailored to Your Unique Business Needs</p>
+  </div>
+</header>
+
+<main class="container">
+  <section class="intro" style="margin-top: 2rem;">
+    <h2 style="text-align:center; color:#004aad;">Why Choose OptiAI?</h2>
+    <p style="max-width:650px; margin: 1rem auto; font-size:1.1rem; text-align:center;">
+      At OptiAI Agency, we understand every business is different. That’s why we don’t offer one-size-fits-all AI solutions. Instead, we work closely with you to discover your goals and challenges — then craft a personalized AI optimization strategy using the latest AI tools and techniques.
+    </p>
+  </section>
+
+  <section class="services">
+    <h2>Our Flexible AI Service Modules</h2>
+    <div class="service-list">
+      <div class="service-item">
+        <h3>Marketing & Ad Optimization</h3>
+        <p>Boost your ROI with AI-driven ad campaigns, automated bidding, and targeted audience segmentation.</p>
+      </div>
+      <div class="service-item">
+        <h3>Chatbots & Customer Engagement</h3>
+        <p>Deploy intelligent chatbots that improve customer experience and automate responses 24/7.</p>
+      </div>
+      <div class="service-item">
+        <h3>Workflow Automation</h3>
+        <p>Streamline repetitive processes using AI-powered automation to save time and reduce errors.</p>
+      </div>
+      <div class="service-item">
+        <h3>Data Analytics & Predictive Modeling</h3>
+        <p>Leverage AI to analyze your data, predict trends, and make smarter business decisions.</p>
+      </div>
+      <div class="service-item">
+        <h3>Custom AI Solutions</h3>
+        <p>Have a unique challenge? We design bespoke AI tools tailored specifically for your business.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to Get Started?</h2>
+    <p>Fill out our <a href="intake-form.html" class="btn-primary">Client Intake Form</a> to get your personalized AI optimization plan.</p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 OptiAI Agency — Crafted with AI for your business success
+</footer>
+
+</body>
+</html>

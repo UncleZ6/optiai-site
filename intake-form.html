@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OptiAI Client Intake Form</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    background: #f7f9fc;
+    color: #222;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #004aad;
+  }
+  label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  .checkbox-group label {
+    font-weight: normal;
+    display: inline-block;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+  }
+  .conditional {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid #004aad;
+    background: #e8f0fe;
+    border-radius: 4px;
+  }
+  button {
+    margin-top: 2rem;
+    background: #004aad;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
+  }
+  button:hover {
+    background: #003080;
+  }
+  .thankyou-message {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: green;
+    font-weight: 700;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h1>OptiAI Agency - Client Intake Form</h1>
+<form id="intakeForm">
+  <label for="company">Company Name *</label>
+  <input type="text" id="company" name="company" required />
+
+  <label for="contactName">Contact Name *</label>
+  <input type="text" id="contactName" name="contactName" required />
+
+  <label for="email">Email Address *</label>
+  <input type="email" id="email" name="email" required />
+
+  <label for="industry">Industry / Niche *</label>
+  <input type="text" id="industry" name="industry" required />
+
+  <label for="primaryGoal">Primary Goal *</label>
+  <select id="primaryGoal" name="primaryGoal" required>
+    <option value="" disabled selected>Select your primary goal</option>
+    <option value="increase_sales">Increase Sales</option>
+    <option value="improve_efficiency">Improve Efficiency</option>
+    <option value="customer_engagement">Customer Engagement</option>
+    <option value="reduce_costs">Reduce Costs</option>
+    <option value="other">Other</option>
+  </select>
+
+  <div id="primaryGoalOtherDiv" class="conditional" style="display:none;">
+    <label for="primaryGoalOther">Please specify your primary goal</label>
+    <input type="text" id="primaryGoalOther" name="primaryGoalOther" />
+  </div>
+
+  <label>Which AI optimization areas interest you? (Select all that apply) *</label>
+  <div class="checkbox-group">
+    <label><input type="checkbox" name="services" value="marketing_ads" /> Marketing & Ad Optimization</label>
+    <label><input type="checkbox" name="services" value="chatbots" /> Chatbots & Customer Engagement</label>
+    <label><input type="checkbox" name="services" value="workflow_automation" /> Workflow Automation</label>
+    <label><input type="checkbox" name="services" value="data_analytics" /> Data Analytics & Predictive Modeling</label>
+    <label><input type="checkbox" name="services" value="other_service" id="otherServiceCheck" /> Other</label>
+  </div>
+
+  <div id="otherServiceDiv" class="conditional" style="display:none;">
+    <label for="otherServiceText">Please specify other AI service(s) you want</label>
+    <input type="text" id="otherServiceText" name="otherServiceText" />
+  </div>
+
+  <label>Do you currently use any AI or automation tools? *</label>
+  <label><input type="radio" name="useAITools" value="yes" required /> Yes</label>
+  <label><input type="radio" name="useAITools" value="no" required /> No</label>
+
+  <div id="toolsUsedDiv" class="conditional" style="display:none;">
+    <label for="toolsUsed">If yes, which tools do you use?</label>
+    <input type="text" id="toolsUsed" name="toolsUsed" />
+  </div>
+
+  <label for="budget">Approximate Monthly Budget for AI Optimization Services *</label>
+  <select id="budget" name="budget" required>
+    <option value="" disabled selected>Select your budget</option>
+    <option value="under_500">$0 - $500</option>
+    <option value="500_1500">$500 - $1,500</option>
+    <option value="1500_5000">$1,500 - $5,000</option>
+    <option value="over_5000">Over $5,000</option>
+  </select>
+
+  <label for="communication">Preferred Communication Method *</label>
+  <select id="communication" name="communication" required>
+    <option value="" disabled selected>Select communication method</option>
+    <option value="email">Email</option>
+    <option value="call">Call</option>
+    <option value="video_chat">Video Chat</option>
+  </select>
+
+  <label for="additionalComments">Additional Comments or Needs</label>
+  <textarea id="additionalComments" name="additionalComments" placeholder="Anything else we should know?"></textarea>
+
+  <button type="submit">Submit</button>
+</form>
+
+<div class="thankyou-message" id="thankyouMessage" style="display:none;">
+  Thanks for submitting! We will review your needs and get back to you shortly.
+</div>
+
+<script>
+  const primaryGoal = document.getElementById('primaryGoal');
+  const primaryGoalOtherDiv = document.getElementById('primaryGoalOtherDiv');
+  const otherServiceCheck = document.getElementById('otherServiceCheck');
+  const otherServiceDiv = document.getElementById('otherServiceDiv');
+  const useAIToolsRadios = document.getElementsByName('useAITools');
+  const toolsUsedDiv = document.getElementById('toolsUsedDiv');
+  const intakeForm = document.getElementById('intakeForm');
+  const thankyouMessage = document.getElementById('thankyouMessage');
+
+  primaryGoal.addEventListener('change', () => {
+    if (primaryGoal.value === 'other') {
+      primaryGoalOtherDiv.style.display = 'block';
+    } else {
+      primaryGoalOtherDiv.style.display = 'none';
+    }
+  });
+
+  otherServiceCheck.addEventListener('change', () => {
+    if (otherServiceCheck.checked) {
+      otherServiceDiv.style.display = 'block';
+    } else {
+      otherServiceDiv.style.display = 'none';
+    }
+  });
+
+  useAIToolsRadios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (radio.value === 'yes' && radio.checked) {
+        toolsUsedDiv.style.display = 'block';
+      } else if (radio.value === 'no' && radio.checked) {
+        toolsUsedDiv.style.display = 'none';
+      }
+    });
+  });
+
+  intakeForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Gather form data
+    const formData = new FormData(intakeForm);
+    let data = {};
+    formData.forEach((value, key) => {
+      if (data[key]) {
+        // If key exists, convert to array or add to it
+        if (Array.isArray(data[key])) {
+          data[key].push(value);
+        } else {
+          data[key] = [data[key], value];
+        }
+      } else {
+        data[key] = value;
+      }
+    });
+
+    // You could send data to your backend or CRM here
+    console.log('Client Intake Form Submission:', data);
+
+    // Show thank you message and hide form
+    intakeForm.style.display = 'none';
+    thankyouMessage.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
